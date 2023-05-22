@@ -340,6 +340,9 @@
         .highlight {
             margin-bottom: 1rem
         }
+        .container{
+            margin-top: 4rem;
+        }
 
         .markdown .footnotes hr {
             margin-top: 4rem;
@@ -349,7 +352,7 @@
             color: var(--main-text-color);
             background-color: var(--main-text-color)
         }
-
+        
         .markdown .footnotes ol {
             counter-reset: item;
             padding-left: 0;
@@ -537,6 +540,15 @@
             line-height: 1.4em
         }
 
+        .header{
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            display: block;
+            transition: top 0.3s;
+            background-color: rgba(255, 255, 255, 0.9);
+
+        }
         .post-header h1 {
             font-weight: var(--main-text-weight);
             font-size: 2.3rem;
@@ -708,8 +720,10 @@
         #burger {
             font-family: var(--font-family);
             font-weight: 400;
-            color: #a9a9a9;
-            font-size: 1.5rem
+            color: #504f4f;
+            font-size: 1.5rem;
+            transition: top 0.3s;
+            
         }
 
         #burger a {
@@ -727,6 +741,7 @@
 
         #nav-icons {
             padding-left: .8rem
+            
         }
 
         #nav-icons svg {
@@ -782,6 +797,7 @@
     <div class=header>
         <nav role=navigation>
             <div id=burger><input type=checkbox id=burger-cbox autocomplete=off>
+                <!-- <label id=label-1 for=burger-cbox>><span><img src="favicon/favicon.png" alt="NONT." style="width: 20px;"></span></label> -->
                 <label id=label-1 for=burger-cbox><span>[</span><span id=l1-val>+</span><span>]</span></label>
                 <label id=label-2 for=burger-cbox><span>[</span><span id=l2-val>x</span><span>]</span></label>
                 <div id=nav-icons>
@@ -1007,4 +1023,26 @@
                 </style>
         </div>
     </div>
-    <div class="separator"></div></body></html>
+    <div class="separator"></div>
+
+    <script>
+        
+        // When the user scrolls down 20px from the top of the document, slide down the navbar
+        window.onscroll = function() {scrollFunction()};
+    
+        function scrollFunction() {
+
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            var headers = document.getElementsByClassName("header");
+            for (var i = 0; i < headers.length; i++) {
+              headers[i].style.top = "0";
+            }
+          } else {
+            var headers = document.getElementsByClassName("header");
+            for (var i = 0; i < headers.length; i++) {
+              headers[i].style.top = "0px";
+            }
+          }
+        }
+    </script>
+</body></html>
