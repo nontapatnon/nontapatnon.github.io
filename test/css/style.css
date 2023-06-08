@@ -38,7 +38,7 @@ header{
 }
 .logo img{
     width: 80%;
-    height: auto;
+    /* height: auto; */
 }
 .navbar {
     display: flex;
